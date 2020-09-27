@@ -4,13 +4,13 @@ class Curso(
     val qtdMaximaDeAlunos: Int,
 ) {
 
-    val listaAlunosMatriculados get() = ArrayList<Aluno>()
+    private val listaAlunosMatriculados get() = ArrayList<Aluno>()
 
-    var professorTitular: ProfessorTitular? = null
+    private var professorTitular: ProfessorTitular? = null
 
-    var professorAdjunto: ProfessorAdjunto? = null
+    private var professorAdjunto: ProfessorAdjunto? = null
 
-    fun adicionarAluno(aluno: Aluno) : Boolean {
+    protected fun adicionarAluno(aluno: Aluno) : Boolean {
 
 //        O método retornará true se o aluno puder ser adicionado ou false caso não haja vagas disponíveis.
 
@@ -25,9 +25,8 @@ class Curso(
         }
     }
 
-    fun excluirAluno(aluno: Aluno) {
+    protected fun excluirAluno(aluno: Aluno) {
 //        excluir um aluno da listade alunos do curso.
-
         listaAlunosMatriculados.remove(aluno)
 
     }

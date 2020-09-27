@@ -1,6 +1,6 @@
 class Curso(
     val nomeDoCurso: String,
-    val codigoDoCurso: Int,
+    var codigoDoCurso: Int,
     val qtdMaximaDeAlunos: Int,
 ) {
 
@@ -26,8 +26,7 @@ class Curso(
     }
 
     protected fun excluirAluno(aluno: Aluno) {
-//        excluir um aluno da listade alunos do curso.
+//      excluir um aluno da listade alunos do curso
         listaAlunosMatriculados.remove(aluno)
-
     }
 }

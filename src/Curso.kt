@@ -26,7 +26,6 @@ class Curso(
     }
 
     protected fun excluirAluno(aluno: Aluno) {
-//      excluir um aluno da listade alunos do curso
         listaAlunosMatriculados.remove(aluno)
     }
 }

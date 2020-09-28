@@ -27,23 +27,23 @@ class DigitalHouseManager(
     }
 
 
-    fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProf: Int, qtdHorasDisponivel: Int){
+    fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProf: Int, tempoDecasa: Int, qtdHorasDisponivel: Int){
 
 //        Criar uma função na classe DigitalHouse Manager​ ​que permite registrar um professor adjunto. A função recebe como parâmetros o nome do professor,
 //        o sobrenome, o código e a quantidade de horas disponíveispara monitoria. O tempo de casa inicial do professor será zero. A função deve criar
 //        um professor adjunto com os dados correspondentes eadicioná-lo à lista de professores.
 
-        val novoProfAdjunto =  ProfessorAdjunto(nome, sobrenome, codigoProf, qtdHorasDisponivel)
+        val novoProfAdjunto =  ProfessorAdjunto(nome, sobrenome, codigoProf, tempoDecasa, qtdHorasDisponivel)
         listaDeProfessores.add(novoProfAdjunto)
 
     }
 
-    fun registrarProfTitular(nome: String, sobrenome: String, codigoProf: Int, especialidade: String){
+    fun registrarProfTitular(nome: String, sobrenome: String, codigoProf: Int, tempoDecasa: Int, especialidade: String){
 
 //        O método deve criar um professor titularcom os dados
 //        correspondentes e adicioná-lo à lista de professores.
 
-        val novoProfTitular =  ProfessorTitular(nome, sobrenome, codigoProf, especialidade)
+        val novoProfTitular =  ProfessorTitular(nome, sobrenome, codigoProf, tempoDecasa, especialidade)
         listaDeProfessores.add(novoProfTitular)
 
     }

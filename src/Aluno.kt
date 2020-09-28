@@ -1,3 +1,3 @@
-class Aluno (val nome: String, val sobrenome: String, val codigoDoAluno: Int) {
+class Aluno (nome: String, sobrenome: String, codigoAluno: Int) : Pessoa(nome, sobrenome, codigoAluno) {
 
 }

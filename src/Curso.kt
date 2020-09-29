@@ -1,31 +1,40 @@
 class Curso(
     val nomeDoCurso: String,
-    var codigoDoCurso: Int,
+    val codigoDoCurso: Int,
     val qtdMaximaDeAlunos: Int,
+    val listaDeAlunosMatriculados: ArrayList<Aluno>
+
+//    var alunosMatriculados: MutableList<Aluno> = mutableListOf() )
 ) {
 
-    private val listaAlunosMatriculados get() = ArrayList<Aluno>()
+    var listaAlunosMatriculados = mutableListOf<Aluno>()
 
-    private var professorTitular: ProfessorTitular? = null
+    val professorTitular: ProfessorTitular? = null
 
-    private var professorAdjunto: ProfessorAdjunto? = null
+    val professorAdjunto: ProfessorAdjunto? = null
 
-    protected fun adicionarAluno(aluno: Aluno) : Boolean {
+    fun adicionarAluno(umAluno: Aluno) : Boolean {
 
-//        O método retornará true se o aluno puder ser adicionado ou false caso não haja vagas disponíveis.
+        return if(listaAlunosMatriculados.size < qtdMaximaDeAlunos) {
 
-        // se a lista de de alunos matriculados for igual a quantidade maxima de alunos retorna false
-        // se não retorna true
-
-        return if(listaAlunosMatriculados.equals(qtdMaximaDeAlunos) ) {
-            false
-        } else {
-            println("Há vagas. Aluno adicionado")
+            listaAlunosMatriculados.add(umAluno)
+            println("Há vagas. O $umAluno foi adicionado")
             true
+
+        } else {
+            println("Não há vagas")
+            false
+
         }
     }
 
-    protected fun excluirAluno(aluno: Aluno) {
-        listaAlunosMatriculados.remove(aluno)
+    fun excluirAluno(umAluno: Aluno) {
+        listaAlunosMatriculados.remove(umAluno)
+        println("O $umAluno foi removido")
     }
+
+    override fun toString(): String {
+        return "Curso(nomeDoCurso='$nomeDoCurso', codigoDoCurso=$codigoDoCurso, qtdMaximaDeAlunos=$qtdMaximaDeAlunos, listaDeAlunosMatriculados=$listaDeAlunosMatriculados, professorTitular=$professorTitular, professorAdjunto=$professorAdjunto)"
+    }
+
 }

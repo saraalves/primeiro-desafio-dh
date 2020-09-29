@@ -1,37 +1,27 @@
 class DigitalHouseManager(
-    val listaDeAlunos: ArrayList<Aluno>,
-    val listaDeProfessores: ArrayList<Professor>,
-    val listaDeCursos: ArrayList<Curso>,
-    val listaDeMatriculas: ArrayList<Matricula>,
+    val listaDeAlunos: MutableList<Aluno>,
+    val listaDeProfessores: MutableList<Professor>,
+    val listaDeCursos: MutableList<Curso>,
+    val listaDeMatriculas: MutableList<Matricula>,
 ) {
 
-    fun registrarCurso(nomeDoCurso: String, codigoCurso: Int, qtdMAximaDeAlunos: Int){
+    fun registrarCurso(nomeDoCurso: String, codigoCurso: Int, qtdMAximaDeAlunos: Int, listaDeAlunosMatriculados: ArrayList<Aluno>){
 
-//        O método deve criar um curso com os dados
-//        correspondentes e adicioná-lo à lista de cursos
-        val novoCurso = Curso(nomeDoCurso, codigoCurso, qtdMAximaDeAlunos)
+        val novoCurso = Curso(nomeDoCurso, codigoCurso, qtdMAximaDeAlunos, listaDeAlunosMatriculados)
         listaDeCursos.add(novoCurso)
 
     }
 
     fun excluirCurso(codigoCurso: Int) {
 
-//        Afunção deve utilizar o código do curso para encontrá-lo
-//        na lista de cursos e excluí-lo da lista
-
-        if (listaDeCursos.contains(codigoCurso)) {
-            listaDeCursos.removeAt(codigoCurso)
+        listaDeCursos.forEach{
+            if(it.codigoDoCurso == codigoCurso){
+                listaDeCursos.remove(it)
+            }
         }
-
-
     }
 
-
     fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProf: Int, tempoDecasa: Int, qtdHorasDisponivel: Int){
-
-//        Criar uma função na classe DigitalHouse Manager​ ​que permite registrar um professor adjunto. A função recebe como parâmetros o nome do professor,
-//        o sobrenome, o código e a quantidade de horas disponíveispara monitoria. O tempo de casa inicial do professor será zero. A função deve criar
-//        um professor adjunto com os dados correspondentes eadicioná-lo à lista de professores.
 
         val novoProfAdjunto =  ProfessorAdjunto(nome, sobrenome, codigoProf, tempoDecasa, qtdHorasDisponivel)
         listaDeProfessores.add(novoProfAdjunto)
@@ -39,9 +29,6 @@ class DigitalHouseManager(
     }
 
     fun registrarProfTitular(nome: String, sobrenome: String, codigoProf: Int, tempoDecasa: Int, especialidade: String){
-
-//        O método deve criar um professor titularcom os dados
-//        correspondentes e adicioná-lo à lista de professores.
 
         val novoProfTitular =  ProfessorTitular(nome, sobrenome, codigoProf, tempoDecasa, especialidade)
         listaDeProfessores.add(novoProfTitular)
@@ -56,13 +43,9 @@ class DigitalHouseManager(
         if (listaDeProfessores.contains(codigoProfessor)) {
             listaDeCursos.removeAt(codigoProfessor)
         }
-
-
     }
 
-    fun registrarAluno(nome: String, sobrenome: String, codigoAluno: Int) {
-
-//        O método deve criar um aluno com os dados
+    fun matricularAluno(nome: String, sobrenome: String, codigoAluno: Int) {
 
         val novoAluno = Aluno(nome, sobrenome, codigoAluno)
         listaDeAlunos.add(novoAluno)

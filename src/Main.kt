@@ -2,27 +2,6 @@ fun main() {
 
     val digitalHouseManager = DigitalHouseManager()
 
-
-//
-//    val professorAdjunto1 = ProfessorAdjunto("Veronika", "Junqueira", 1, 5, 5)
-//    val professorAdjunto2 = ProfessorAdjunto("Olga ", "Rico", 2, 6, 10)
-//    val professorAdjunto3 = ProfessorAdjunto("Veronika", "Junqueira", 3, 7, 15)
-//    val professorAdjunto4 = ProfessorAdjunto("Veronika", "Junqueira", 4, 8, 20)
-//    val professorAdjunto5 = ProfessorAdjunto("Veronika", "Junqueira", 5, 9, 25)
-//
-//    val listaProfessorAdjunto = arrayListOf<Professor>(professorAdjunto1, professorAdjunto2, professorAdjunto3, professorAdjunto4, professorAdjunto5)
-//
-//
-//    val curso1 =  Curso("Matemática", 1, 5)
-//
-//    if(listaAlunos.size < curso1.qtdMaximaDeAlunos) {
-//        curso1.adicionarAluno(novoAluno)
-//    } else {
-//        println("Aluno recusado")
-//    }
-//
-//    curso1.excluirAluno(listaAlunos[4])
-
     digitalHouseManager.registrarCurso("Administração", 5, 20)
     digitalHouseManager.registrarCurso("Marketing", 10, 30)
     digitalHouseManager.registrarCurso("Marketing", 15, 40)
@@ -49,7 +28,40 @@ fun main() {
     digitalHouseManager.matricularAluno("Jéssica", "Maria", 5 )
 
     println(digitalHouseManager.listaDeAlunos)
-    val curso = Curso()
-    curso.excluirAluno(digitalHouseManager.listaDeAlunos[3])
+
+
+    val aluno1 = Aluno("Roberta", "Silva", 1)
+    val aluno2 = Aluno("Luiz", "Araujo", 2)
+    val aluno3 = Aluno("Julio", "Alves", 3)
+    val aluno4 = Aluno("Bruna", "Gomes", 4)
+    val aluno5 = Aluno("Isabela", "Cardoso", 5)
+
+    val novoAluno = Aluno("Lucas", "Silva", 6)
+
+    var curso1 = Curso("Lógica de programação", 1, 5)
+
+    var listaAlunos1 = arrayListOf<Aluno>()
+
+    curso1.adicionarAluno(aluno1)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.adicionarAluno(aluno2)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.adicionarAluno(aluno3)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.adicionarAluno(aluno4)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.adicionarAluno(aluno5)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.adicionarAluno(novoAluno)
+    println(curso1.listaDeAlunosMatriculados.size)
+
+    curso1.excluirAluno(aluno3)
+    println(curso1.listaDeAlunosMatriculados.size)
+
 
 }

@@ -5,10 +5,6 @@ data class DigitalHouseManager(
     var listaDeMatriculas: MutableList<Matricula> = mutableListOf(),
 ) {
 
-    private val codigoCurso = Curso()
-    private val codigoAluno = Aluno()
-
-
     fun registrarCurso(nomeDoCurso: String, codigoCurso: Int, qtdMAximaDeAlunos: Int){
 
         val novoCurso = Curso(nomeDoCurso, codigoCurso, qtdMAximaDeAlunos)

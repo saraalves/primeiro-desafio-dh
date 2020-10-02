@@ -8,9 +8,9 @@ class Curso(
 
     var listaAlunosMatriculados = mutableListOf<Aluno>()
 
-    val professorTitular: ProfessorTitular? = null
+    var professorTitular: ProfessorTitular? = null
 
-    val professorAdjunto: ProfessorAdjunto? = null
+    var professorAdjunto: ProfessorAdjunto? = null
 
     fun adicionarAluno(umAluno: Aluno) : Boolean {
 

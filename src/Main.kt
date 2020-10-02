@@ -29,7 +29,6 @@ fun main() {
 
     println(digitalHouseManager.listaDeAlunos)
 
-
     val aluno1 = Aluno("Roberta", "Silva", 1)
     val aluno2 = Aluno("Luiz", "Araujo", 2)
     val aluno3 = Aluno("Julio", "Alves", 3)
@@ -40,7 +39,6 @@ fun main() {
 
     var curso1 = Curso("Lógica de programação", 1, 5)
 
-    var listaAlunos1 = arrayListOf<Aluno>()
 
     curso1.adicionarAluno(aluno1)
     println(curso1.listaDeAlunosMatriculados.size)
@@ -63,5 +61,25 @@ fun main() {
     curso1.excluirAluno(aluno3)
     println(curso1.listaDeAlunosMatriculados.size)
 
+    try {
+        digitalHouseManager.matricularAluno(1, 5)
+        digitalHouseManager.matricularAluno(2, 4)
+        digitalHouseManager.matricularAluno(3, 3)
+        digitalHouseManager.matricularAluno(4, 2)
+        digitalHouseManager.matricularAluno(5, 1)
+        println(digitalHouseManager.listaDeCursos)
+    } catch (e: Exception) {
+        return println(e.message)
+    }
 
+    try {
+        digitalHouseManager.alocarProfessor(1, 5, 10)
+        digitalHouseManager.alocarProfessor(2, 4, 5)
+        digitalHouseManager.alocarProfessor(3, 3, 15)
+        digitalHouseManager.alocarProfessor(4, 2, 20)
+        digitalHouseManager.alocarProfessor(5, 1, 25)
+    } catch (e: Exception) {
+        return println(e.message)
+    }
 }
+

@@ -60,8 +60,18 @@ data class DigitalHouseManager(
 //        Se não houver vagas disponíveis:
 //          Informar na tela que não foi possível realizar a matrícula porque não há vagas
 
-        val matricula = listaDeCursos.contains(codigoCurso)
-        val aluno =  listaDeAlunos.contains(codigoAluno)
+        listaDeCursos.contains(codigoCurso)
+        listaDeAlunos.contains(codigoAluno)
+//
+//        if(codigoCurso != null) {
+//            if(codigoAluno != null){
+//                if() {
+//
+//                }
+//
+//            }
+//
+//        }
 
 
 

@@ -4,7 +4,6 @@ class Curso(
     val qtdMaximaDeAlunos: Int,
     var listaDeAlunosMatriculados: MutableList<Aluno> = mutableListOf()
 
-//    var alunosMatriculados: MutableList<Aluno> = mutableListOf() )
 ) {
 
     constructor() : this("", 0, 0 )

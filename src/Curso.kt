@@ -2,10 +2,12 @@ class Curso(
     val nomeDoCurso: String,
     val codigoDoCurso: Int,
     val qtdMaximaDeAlunos: Int,
-    val listaDeAlunosMatriculados: ArrayList<Aluno>
+    var listaDeAlunosMatriculados: MutableList<Aluno> = mutableListOf()
 
 //    var alunosMatriculados: MutableList<Aluno> = mutableListOf() )
 ) {
+
+    constructor() : this("", 0, 0 )
 
     var listaAlunosMatriculados = mutableListOf<Aluno>()
 
@@ -30,7 +32,7 @@ class Curso(
 
     fun excluirAluno(umAluno: Aluno) {
         listaAlunosMatriculados.remove(umAluno)
-        println("O $umAluno foi removido")
+        println("O aluno $umAluno foi removido")
     }
 
     override fun toString(): String {

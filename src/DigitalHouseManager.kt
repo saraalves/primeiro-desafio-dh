@@ -1,24 +1,25 @@
-class DigitalHouseManager(
-    val listaDeAlunos: MutableList<Aluno>,
-    val listaDeProfessores: MutableList<Professor>,
-    val listaDeCursos: MutableList<Curso>,
-    val listaDeMatriculas: MutableList<Matricula>,
+data class DigitalHouseManager(
+    var listaDeAlunos: MutableList<Aluno> = mutableListOf(),
+    var listaDeProfessores: MutableList<Professor> = mutableListOf(),
+    var listaDeCursos: MutableList<Curso> = mutableListOf(),
+    var listaDeMatriculas: MutableList<Matricula> = mutableListOf(),
 ) {
 
-    fun registrarCurso(nomeDoCurso: String, codigoCurso: Int, qtdMAximaDeAlunos: Int, listaDeAlunosMatriculados: ArrayList<Aluno>){
+    private val codigoCurso = Curso()
+    private val codigoAluno = Aluno()
 
-        val novoCurso = Curso(nomeDoCurso, codigoCurso, qtdMAximaDeAlunos, listaDeAlunosMatriculados)
+
+    fun registrarCurso(nomeDoCurso: String, codigoCurso: Int, qtdMAximaDeAlunos: Int){
+
+        val novoCurso = Curso(nomeDoCurso, codigoCurso, qtdMAximaDeAlunos)
         listaDeCursos.add(novoCurso)
-
     }
 
     fun excluirCurso(codigoCurso: Int) {
 
-        listaDeCursos.forEach{
-            if(it.codigoDoCurso == codigoCurso){
-                listaDeCursos.remove(it)
-            }
-        }
+        listaDeCursos = listaDeCursos.filter {
+            it.codigoDoCurso != codigoCurso
+        } as MutableList<Curso>
     }
 
     fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProf: Int, tempoDecasa: Int, qtdHorasDisponivel: Int){
@@ -37,12 +38,9 @@ class DigitalHouseManager(
 
     fun excluirProfessor(codigoProfessor: Int) {
 
-//        O método deve utilizar o código do professor para encontrá-lo
-//        na lista de professores e eliminá-lo da lista.
-
-        if (listaDeProfessores.contains(codigoProfessor)) {
-            listaDeCursos.removeAt(codigoProfessor)
-        }
+        listaDeProfessores = listaDeProfessores.filter {
+            it.codigo != codigoProfessor
+        } as MutableList<Professor>
     }
 
     fun matricularAluno(nome: String, sobrenome: String, codigoAluno: Int) {
@@ -77,11 +75,12 @@ class DigitalHouseManager(
 //        Encontrar o professor adjunto na lista de professores.
 //        Alocar ambos professores ao curso.
 
-        val professorTitular = listaDeProfessores.contains(codigoProfessorTitular)
-        val professorAdjunto = listaDeProfessores.contains(codigoprofessorAdjunto)
+        val professorTitular = listaDeProfessores?.contains(codigoProfessorTitular)
+        val professorAdjunto = listaDeProfessores?.contains(codigoprofessorAdjunto)
 
         // adicionar eles ao curso X
         // como eu faço isso ?
     }
+
 
 }
